@@ -1,0 +1,29 @@
+.tanpa-bootstrap {
+    border: none;
+    padding: 20px;
+    font-weight: 800;
+    font-size: 3em;
+    background-color: bisque;
+    color: black;
+    cursor: pointer;
+}
+
+.tanpa-bootstrap:hover {
+    background-color: black;
+    color: bisque;
+    transform: rotateY(2);
+    transition: all .5s;
+}
+
+.bg-gold {
+    background-color: #F7D000;
+    transform: rotate(45deg);
+}
+
+.relative {
+    position: relative;
+}
+
+.active-danger {
+    background-color: #DC3545;
+}

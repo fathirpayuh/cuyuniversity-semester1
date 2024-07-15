@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous">
+		<title>CuyUniversity Sesi 3</title>
+	</head>
+	<body>
+
+		<!-- NAVBAR START-->
+		<div>
+			<nav class="navbar navbar-dark bg-primary">
+				<div class="container-fluid d-flex justify-content-between">
+					<a class="navbar-brand">CuyUniverse Sesi 3</a>
+					<form class="d-flex" role="search">
+						<input class="form-control me-2" type="search" placeholder="Search"
+							aria-label="Search">
+						<button class="btn btn-secondary" type="submit">Cari</button>
+					</form>
+					<!-- OFFCANVAS -->
+					<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+						<div class="offcanvas-header">
+							<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+						</div>
+						<div class="offcanvas-body bg-primary">
+							<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+								<li class="nav-item">
+									<a class="nav-link active" aria-current="page" href="#">Home</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Link</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										Dropdown
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Action</a></li>
+										<li><a class="dropdown-item" href="#">Another action</a></li>
+										<li>
+											<hr class="dropdown-divider">
+										</li>
+										<li><a class="dropdown-item" href="#">Something else here</a></li>
+									</ul>
+								</li>
+							</ul>
+							<form class="d-flex mt-3" role="search">
+								<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+								<button class="btn btn-secondary" type="submit">Search</button>
+							</form>
+						</div>
+					</div>
+					<!-- OFFCANVAS END -->
+				</div>
+			</nav>
+		</div>
+		<!-- NAVBAR END -->
+
+		<!-- CAROUSEL -->
+		<div>
+			<div id="carouselExampleAutoplaying" class="carousel slide"
+				data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="gambar1.jpg" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="gambar3.3.jpg" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="gambar2.jpg" class="d-block w-100" alt="...">
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+		<!-- CAROUSEL END -->
+
+		<!-- PRODUK SAYA -->
+		<div class="container mt-3 text-center">
+			<div class="row row-cols-1 row-cols-md-2 g-3">
+				<div class="card col-sm-6">
+					<h5 class="card-header">Jasa Pacak Kucing</h5>
+					<div class="card-body">
+						<h5 class="card-title">Mainccon terbaik handal</h5>
+						<img src="gambar1.jpg" class="img-thumbnail" alt="...">
+						<p class="card-text">Jasa pacak kucing terbaik se-Indonesia sejak 1900.</p>
+						<button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="This top tooltip is themed via CSS variables.">Hubungi Sekarang</button>
+						<span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-gold">
+							NEW
+						</span>
+					</div>
+				</div>
+				<!-- CARD LOADING -->
+				<div class="card col-sm-6" aria-hidden="true">
+					<h5 class="card-header placeholder-glow">
+						<span class="placeholder col-6"></span>
+					</h5>
+					<div class="card-body">
+						<h5 class="card-title placeholder-glow">
+							<span class="placeholder col-6"></span>
+						</h5>
+						<img src="..." class="img-thumbnail card-img-top" alt="...">
+						<p class="card-text placeholder-glow">
+							<span class="placeholder col-8"></span>
+						</p>
+						<button type="button" class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></button>
+						<span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-gold placeholder-glow">
+							<span class="placeholder col-4"></span>
+						</span>
+					</div>
+				</div>
+				<!-- CARD LOADING END -->
+				<div class="card col-sm-6">
+					<h5 class="card-header">Jasa Las Karbit</h5>
+					<div class="card-body">
+						<h5 class="card-title">Tenaga Handal</h5>
+						<img src="gambar1.jpg" class="img-thumbnail" alt="...">
+						<p class="card-text">Jasa las karbit dengan tenaga handal dan profesional.</p>
+						<a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Hubungi Sekarang</a>
+						<div class="collapse mt-2" id="collapseExample">
+							<div class="card card-body">
+								WA : <a href="#">+62 812 3453 4924</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card col-sm-6">
+					<h5 class="card-header">Jasa Servis Pagar</h5>
+					<div class="card-body">
+						<h5 class="card-title">Tenaga Handal</h5>
+						<img src="gambar1.jpg" class="img-thumbnail" alt="...">
+						<p class="card-text">Jasa servis pagar dengan layanan 24/7 dan siap kerja kapan saja..</p>
+						<!-- POPOVER (GAK KENEK) -->
+						<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+							<button class="btn btn-primary relative" type="button" disabled>
+								Hubungi Sekarang <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger active-danger">
+									Close
+									</span>
+							</button>
+						</span>
+						<!-- POPOVER END -->
+					</div>
+				</div>
+				<div class="card col-sm-6">
+					<h5 class="card-header">Jasa Servis AC</h5>
+					<div class="card-body">
+						<h5 class="card-title">Tenaga Handal</h5>
+						<img src="gambar1.jpg" class="img-thumbnail" alt="...">
+						<p class="card-text">Jasa servis AC dengan layanan 24/7 dan siap kerja kapan saja..</p>
+						<!-- TRIGGER MODAL -->
+						<a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Hubungi Sekarang</a>
+						<!-- MODAL -->
+						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="exampleModalLabel">Waktu Kerja</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<!-- LIST RADIO -->
+										<ul class="list-group">
+											<li class="list-group-item">
+												<input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
+												<label class="form-check-label" for="firstRadio">Lama tapi bagus</label>
+											</li>
+											<li class="list-group-item">
+												<input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
+												<label class="form-check-label" for="secondRadio">Sedang (tengah-tengah)</label>
+											</li>
+											<li class="list-group-item">
+												<input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
+												<label class="form-check-label" for="thirdRadio">Cepat tapi seadanya</label>
+											</li>
+										</ul>
+										<!-- LIST RADIO END -->
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Save changes</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- MODAL END -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- PRODUK SAYA END -->
+
+		<!-- PAGINATION -->
+		<nav class="mt-5" aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<li class="page-item disabled">
+					<a class="page-link">Sebelumnya</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#">Setelahnya</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- PAGINATION END -->
+
+
+		
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"></script>
+	</body>
+</html>
