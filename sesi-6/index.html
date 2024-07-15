@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CuyUniversity SESI 6</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a onclick="reRender()" id="home">HOME</a>
+        <a onclick="darkMode()" id="modeDark">MODE DARK</a>
+        <a onclick="gradientMode()" id="modeGradient">MODE GRADIENT</a>
+        <a onclick="vibrate()" id="vibrate">GETAR</a>
+        <!-- <a onclick="textShadow()" id="textShadow">ADD TEXT SHADOW</a> -->
+      </nav>
+      <h1 id="text">SESI 6 CUY UNIVERSITY</h1>
+      <p class="info" id="info"></p>
+    </div>
+
+    <!-- initializing function script -->
+    <script>
+      let body = document.body;
+      let home = document.getElementById('home');
+      let modeDark = document.getElementById('modeDark');
+      let getar = document.getElementById('vibrate');
+      let text = document.getElementById('text');
+      let info = document.getElementById('info');
+
+      // Home
+      function reRender() {
+        location.reload();
+      }
+
+      // Mode dark
+      const darkLimit = 5;
+      let darkCounter = 0;
+      let darkRemainingLeft;
+
+      function darkMode() {
+        if (darkRemainingLeft == 0) {
+          info.textContent = 'JATAH FITUR DARKMODE ANDA SUDAH HABIS';
+          modeDark.style.display = 'none';
+          home.textContent = 'RESTART';
+          return
+        }
+        darkCounter += 1;
+        darkRemainingLeft = darkLimit - darkCounter;
+
+        // render ke info element
+        info.textContent = `Dark mode dipakai ${darkCounter}x, tersisa : ${darkRemainingLeft}`;
+        body.style.backgroundImage = 'none';
+        body.style.transition = 'all .3s ease-in-out'
+        info.style.display = 'block';
+        body.classList.toggle('dark');
+        if (body.classList.contains('dark')) {
+          body.style.color = 'white';
+          modeDark.textContent = 'MODE LIGHT';
+        } else {
+          modeDark.textContent = 'MODE DARK';
+          body.style.color = 'black';
+        }
+      }
+
+      // Mode gradient
+      function gradientMode() {
+        body.style.color = 'white';
+        info.style.display = 'none';
+        const color1 = randomColor();
+        const color2 = randomColor();
+        // const color3 = randomColor();
+
+        let direction = ['to top', 'to right', 'to bottom', 'to left', 'to top left', 'to top right', 'to bottom right', 'to bottom left'];
+        let directionSelect = direction[Math.floor(Math.random() * 8)];
+
+        body.style.backgroundImage = `linear-gradient(${directionSelect}, ${color1}, ${color2}`;
+        body.style.transition = 'background-image .3s ease-in-out'
+      }
+
+      function randomColor() {
+        const warna = '0123456789ABCDEF';
+        let hexColor = '#';
+        for (let i = 0; i < 6; i++) {
+          hexColor += warna[Math.floor(Math.random() * 16)];
+        }
+        return hexColor;
+      }
+
+      // Vibrate
+      function vibrate() {
+        console.log('payuh');
+        text.classList.toggle('vibrate');
+      }
+
+      // Text shadow
+      // function textShadow() {
+      //   let bodyColor = window.getComputedStyle(body).backgroundColor;
+      //   // let bodyBackgroundImage = window.getComputedStyle(body).backgroundImage;
+      //   // let bodyColor = styles.backgroundColor
+      //   console.log(bodyBackgroundImage);
+      //   text.style.textShadow = `0 0 10px ${bodyColor}`;
+      // }
+    </script>
+  </body>
+</html>
