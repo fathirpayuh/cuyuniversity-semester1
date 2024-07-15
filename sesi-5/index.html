@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUYUNIVERSITY-SEMESTER1-SESI-5</title>
+    <style>
+      #root {
+        background-color: tomato;
+        color: white;
+        font-size: 2em;
+        text-align: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <input type="text" placeholder="username" id="usernameInput" />
+      <input type="password" placeholder="password" id="passwordInput" />
+      <button onclick="onLogin()" id="loginButton">LOGIN</button>
+      <button onclick="onLogout()" id="logoutButton">LOGOUT</button>
+      <button onclick="onRegister()" id="registerButton">REGISTER</button>
+      <button onclick="onDaftar()" id="daftarButton">DAFTAR</button>
+      <button onclick="onAccountDelete()" id="accountDeleteButton">HAPUS AKUN</button>
+      <br />
+      <p id="errorMessage">Silahkan register / daftar terlebih dahulu</p>
+      <p id="noLoginMessage">Harap Masukkan Username atau password dahulu sebelum login</p>
+      <p id="wrongInputMessage">Masukkan username dan password dengan benar</p>
+      <h1 id="loginSuccess"></h1>
+    </div>
+
+    <script type="application/javascript">
+
+      let root = document.getElementById('root');
+      let usernameInput = document.getElementById('usernameInput');
+      let passwordInput = document.getElementById('passwordInput');
+      let loginButton = document.getElementById('loginButton');
+      let logoutButton = document.getElementById('logoutButton');
+      let registerButton = document.getElementById('registerButton');
+      let daftarButton = document.getElementById('daftarButton');
+      let accountDeleteButton = document.getElementById('accountDeleteButton');
+      let errorMessage = document.getElementById('errorMessage');
+      let noLoginMessage = document.getElementById('noLoginMessage');
+      let wrongInputMessage = document.getElementById('wrongInputMessage');
+      let loginSuccess = document.getElementById('loginSuccess');
+
+      // root.style.display = 'flex';
+      // root.style.flexDirection = 'row';
+      // root.style.alignItems = 'start';
+      // root.style.justifyContent = 'center';
+      // root.style.gap = '.6em';
+      // root.style.paddingTop = '50px';
+      // root.style.transition = 'all .5s'
+      logoutButton.style.display = 'none';
+      daftarButton.style.display = 'none';
+      daftarButton.style.margin = '20px auto';
+      accountDeleteButton.style.display = 'none';
+      errorMessage.style.display = 'none';
+      noLoginMessage.style.display = 'none';
+      wrongInputMessage.style.display = 'none';
+      errorMessage.style.color = 'red';
+      noLoginMessage.style.color = 'red';
+      wrongInputMessage.style.color = 'red';
+
+      function onLogin() {
+        // localStorage.setItem("username", usernameInput.value);
+        logoutButton.style.display = 'block';
+        registerButton.style.display = 'none';
+        accountDeleteButton.style.display = 'block';
+
+        if (usernameInput.value == 'admin' && passwordInput.value == 'admin123') {
+          localStorage.setItem("username", "admin");
+          localStorage.setItem("role", "admin");
+          root.style.backgroundImage = 'linear-gradient(to bottom, red 30%, blue)'
+          usernameInput.style.display = 'none';
+          passwordInput.style.display = 'none';
+          loginButton.style.display = 'none';
+          loginSuccess.innerHTML = 'Selamat datang admin';
+        } else if (usernameInput.value == localStorage.getItem('username') && passwordInput.value == localStorage.getItem('password')) {
+          usernameInput.style.display = 'none';
+          passwordInput.style.display = 'none';
+          loginButton.style.display = 'none';
+          noLoginMessage.style.display = 'none';
+          loginSuccess.innerHTML = `Selamat datang ${usernameInput.value}`;
+          root.style.color = 'cyan';
+          if (localStorage.getItem('role') == 'no login') {
+            localStorage.setItem("role", "karyawan");
+          } else {
+            let langganan = confirm('Apakah anda ingin berlangganan ?');
+            if (langganan) {
+              alert('terima kasih sudah berlangganan \nselamat datang.')
+              localStorage.setItem("role", "karyawan");
+            } else {
+              let yakin = confirm('yakin ?');
+              if (yakin == false) {
+                alert('terima kasih sudah berlangganan \nselamat datang.')
+                localStorage.setItem("role", "karyawan");
+              } else {
+                alert('Selamat datang gratisan');
+                localStorage.setItem("role", "karyawan");
+              }
+            }
+          }
+        } else if (localStorage.getItem('role') == 'register') {
+          wrongInputMessage.style.display = 'block';
+          logoutButton.style.display = 'none';
+          accountDeleteButton.style.display = 'none';
+        } else if (usernameInput.value === '') {
+          noLoginMessage.style.display = 'block';
+          wrongInputMessage.style.display = 'none';
+          logoutButton.style.display = 'none';
+          accountDeleteButton.style.display = 'none';
+          // usernameInput.style.display = 'none';
+          // passwordInput.style.display = 'none';
+          // loginButton.style.display = 'none';
+        } else if (usernameInput.value.length != localStorage.getItem('username').length || passwordInput.value.length != localStorage.getItem('password').length) {
+          wrongInputMessage.style.display = 'block';
+          logoutButton.style.display = 'none';
+          accountDeleteButton.style.display = 'none';
+          noLoginMessage.style.display = 'none';
+        } else {
+          errorMessage.style.display = 'block';
+          logoutButton.style.display = 'none';
+          registerButton.style.display = 'block';
+          accountDeleteButton.style.display = 'none';
+          // usernameInput.style.display = 'none';
+          // passwordInput.style.display = 'none';
+          // loginButton.style.display = 'none';          
+        }
+      }
+
+      function onRegister() {
+        loginButton.style.display = 'none';
+        logoutButton.style.display = 'none';
+        registerButton.style.display = 'none';
+        daftarButton.style.display = 'block';
+        accountDeleteButton.style.display = 'none';
+      }
+
+      function onDaftar() {
+        localStorage.setItem('username', usernameInput.value);
+        localStorage.setItem('password', passwordInput.value);
+        localStorage.setItem('role', 'register');
+        location.reload();
+      }
+
+      if (localStorage.getItem('role') == 'admin' || localStorage.getItem('role') == 'karyawan') {
+        usernameInput.style.display = 'none';
+        passwordInput.style.display = 'none';
+        loginButton.style.display = 'none';
+        logoutButton.style.display = 'block';
+        accountDeleteButton.style.display = 'block';
+        registerButton.style.display = 'none';
+        wrongInputMessage.style.display = 'none';
+        // noLoginMessage.style.display = 'none';
+        if (localStorage.getItem('role') == 'admin') {
+          root.style.backgroundImage = 'linear-gradient(to bottom, red 30%, blue)'
+          loginSuccess.innerHTML = 'Selamat datang admin';
+        } else if (localStorage.getItem('role') == 'karyawan') {
+          root.style.color = 'cyan';
+          loginSuccess.innerHTML = `Selamat datang ${localStorage.getItem('username')}`;
+        } else {
+          usernameInput.style.display = 'block';
+          passwordInput.style.display = 'block';
+          loginButton.style.display = 'block';
+          logoutButton.style.display = 'none';
+          registerButton.style.display = 'block';
+          errorMessage.style.display = 'block';
+        }
+      }
+
+      function onLogout() {
+        // localStorage.clear();
+        if (localStorage.getItem('role') == 'admin' || localStorage.getItem('role') == 'karyawan') {
+          localStorage.setItem('role', 'no login')
+          location.reload();
+        }
+      }
+
+      function onAccountDelete() {
+        localStorage.clear();
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
